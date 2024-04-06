@@ -152,7 +152,7 @@ func update() -> void:
 				hull[j] = id
 				j += 1
 				d0 = _dists[id]
-		hull = hull.slice(0, j - 1)
+		hull = hull.slice(0, j)
 		triangles = []
 		halfedges = []
 
@@ -292,8 +292,8 @@ func update() -> void:
 		e = _hull_next[e]
 
 	# Trim typed triangle mesh arrays.
-	triangles = _triangles.slice(0, triangles_len - 1)
-	halfedges = _halfedges.slice(0, triangles_len - 1)
+	triangles = _triangles.slice(0, triangles_len)
+	halfedges = _halfedges.slice(0, triangles_len)
 
 
 func _hash_key(x: float, y: float) -> float:
