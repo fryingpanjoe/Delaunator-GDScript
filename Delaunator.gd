@@ -408,7 +408,7 @@ func _add_triangle(i0: int, i1: int, i2: int, a: int, b: int, c: int) -> int:
 
 # Monotonically increases with real angle, but doesn't need expensive trigonometry.
 func pseudo_angle(dx: float, dy: float) -> float:
-	var p := dx / (abs(dx) + abs(dy))
+	var p := dx / (absf(dx) + absf(dy))
 
 	if (dy > 0):
 		return (3.0 - p) / 4.0 # [0..1]
