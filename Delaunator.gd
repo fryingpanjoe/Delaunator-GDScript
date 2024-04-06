@@ -3,26 +3,26 @@ class_name Delaunator
 const EPSILON = pow(2, -52)
 var EDGE_STACK = []
 
-var coords := PoolRealArray()
-var halfedges := PoolIntArray()
-var hull := [] # This array should be a PoolIntArray but we need to use the .slice() function on it.
-var triangles := PoolIntArray()
+var coords := PackedFloat32Array()
+var halfedges := PackedInt32Array()
+var hull := [] # This array should be a PackedInt32Array but we need to use the .slice() function on it.
+var triangles := PackedInt32Array()
 var triangles_len := 0
 var _cx: float
 var _cy: float
-var _dists := PoolRealArray()
-var _halfedges := [] # This array should be a PoolIntArray but we need to use the .slice() function on it.
+var _dists := PackedFloat32Array()
+var _halfedges := [] # This array should be a PackedInt32Array but we need to use the .slice() function on it.
 var _hash_size: int
-var _hull_hash := PoolIntArray()
-var _hull_next := PoolIntArray()
-var _hull_prev := PoolIntArray()
+var _hull_hash := PackedInt32Array()
+var _hull_next := PackedInt32Array()
+var _hull_prev := PackedInt32Array()
 var _hull_start: int
-var _hull_tri := PoolIntArray()
-var _ids := [] # PoolIntArray, but causes errors if not an array
-var _triangles := []  # This array should be a PoolIntArray but we need to use the .slice() function on it.
+var _hull_tri := PackedInt32Array()
+var _ids := [] # PackedInt32Array, but causes errors if not an array
+var _triangles := []  # This array should be a PackedInt32Array but we need to use the .slice() function on it.
 
 
-func _init(points: PoolVector2Array) -> void:
+func _init(points: PackedVector2Array) -> void:
 	if points.size() < 3:
 		push_error(ProjectSettings.get_setting("application/config/name") + " needs at least 3 points.")
 		return
