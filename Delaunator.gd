@@ -1,7 +1,7 @@
 class_name Delaunator
 
 const EPSILON = pow(2, -52)
-const EDGE_STACK = []
+var EDGE_STACK = []
 
 var coords := PoolRealArray()
 var halfedges := PoolIntArray()
